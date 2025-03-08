@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: diegoteruya <diegoteruya@student.42.fr>    +#+  +:+       +#+        */
+/*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/06 11:23:05 by diegoteruya       #+#    #+#             */
-/*   Updated: 2025/03/06 12:05:07 by diegoteruya      ###   ########.fr       */
+/*   Created: 2025/03/07 09:33:11 by dteruya           #+#    #+#             */
+/*   Updated: 2025/03/07 15:46:40 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static long	ft_atol(const char *s)
 	if (*s == '-' || *s == '+')
 	{
 		if (*s == '-')
-			sign = -1;
+			sign = sign * -1;
 		s++;
 	}
 	while (ft_isdigit(*s))
@@ -44,7 +44,7 @@ void	init_stack(t_stack_node **a, char **argv)
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
-			free_errors(a);
+			free_errors(a, argv);
 		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
 			free_errors(a);

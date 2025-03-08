@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/07 09:32:39 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/07 13:36:19 by dteruya          ###   ########.fr       */
+/*   Created: 2025/03/07 14:08:51 by dteruya           #+#    #+#             */
+/*   Updated: 2025/03/07 14:40:48 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	error_syntax(char *str)
 {
-	t_stack_node	*a;
-	t_stack_node	*b;
-
-	a = NULL;
-	b = NULL;
-	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
+	if (!(*str == '-' || *str == '+' || (*str >= '0' && *str <= '9')))
 		return (1);
-	else if (argc == 2)
-		argv = ft_split(argv[1], ' ');
-	stack_init(&a, argv + 1);
+	if ((*str == '-' || *str == '+') && !(str[1] >= '0' && str[1] <= '9'))
+		return (1);
+	str++;
+	while (*str)
+	{
+		if (!(*str >= '0' && *str <= '9'))
+			return (1);
+		str++;
+	}
+	return (0);
 }
