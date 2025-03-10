@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/07 09:32:39 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/10 16:55:16 by dteruya          ###   ########.fr       */
+/*   Created: 2025/03/10 12:27:26 by dteruya           #+#    #+#             */
+/*   Updated: 2025/03/10 16:56:02 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	stack_len(t_stack_node *stack)
 {
-	t_stack_node	*a;
-	t_stack_node	*b;
+	
+}
 
-	a = NULL;
-	b = NULL;
-	if (argc == 1 || (argc == 2 && argv[1][0] == '\0'))
-		return (1);
-	else if (argc == 2)
-		argv = ft_split(argv[1], ' ');
-	stack_init(&a, argv + 1, argc == 2);
-	if (!stack_sorted(a))
-	{
-		if (stack_len(a) == 2)
-			sa(&a, false);
-	}
-	free_stack(&a);
-	return (0);
+void	append_node(t_stack_node **stack, int nbr)
+{
+	t_stack_node *node;
+
+	node = new_node(nbr);
+	if (*stack == NULL)
+		*stack = node;
+	else
+		add_back(stack, node);
 }

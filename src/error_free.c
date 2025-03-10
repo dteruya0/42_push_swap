@@ -6,11 +6,26 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:08:51 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/07 14:40:48 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/10 16:35:59 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	free_matrix(char **argv)
+{
+	int	i;
+
+	i = 0;
+	if (argv == NULL || *argv == NULL)
+		return ;
+	while (argv[i])
+	{
+		free(argv[i]);
+		i++;
+	}
+	free(argv);
+}
 
 int	error_syntax(char *str)
 {
@@ -26,4 +41,41 @@ int	error_syntax(char *str)
 		str++;
 	}
 	return (0);
+}
+
+int	error_duplicate(t_stack_node *a, int nbr)
+{
+	if (a == NULL)
+		return (0);
+	while (a)
+	{
+		if (a->value == nbr)
+			return (1);
+		a = a->next;
+	}
+	return (0);
+}
+
+void	free_stack(t_stack_node **stack)
+{
+	t_stack_node	*node;
+
+	if (stack == NULL)
+		return ;
+	while (*stack)
+	{
+		node = (*stack)->next;
+		free(*stack);
+		*stack = node;
+	}
+	*stack = NULL;
+}
+
+void	free_error(t_stack_node **a, char **argv, bool flag_argc_2)
+{
+	free_stack(a);
+	if (flag_argc_2)
+		free_matrix(argv);
+	write(1, "Error\n", 6);
+	exit(1);
 }

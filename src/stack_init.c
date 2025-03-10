@@ -6,11 +6,24 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:33:11 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/07 15:46:40 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/10 16:53:20 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+bool	stack_sorted(t_stack_node *stack)
+{
+	if (stack == NULL)
+		return (1);
+	while (stack->next)
+	{
+		if (stack->value > stack->next->value)
+			return (false);
+		stack = stack->next;
+	}
+	return (true);
+}
 
 static long	ft_atol(const char *s)
 {
@@ -35,7 +48,7 @@ static long	ft_atol(const char *s)
 	return (result * sign);
 }
 
-void	init_stack(t_stack_node **a, char **argv)
+void	stack_init(t_stack_node **a, char **argv, bool flag_argc_2)
 {
 	long	n;
 	int		i;
@@ -44,13 +57,15 @@ void	init_stack(t_stack_node **a, char **argv)
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))
-			free_errors(a, argv);
+			free_error(a, argv, flag_argc_2);
 		n = ft_atol(argv[i]);
 		if (n > INT_MAX || n < INT_MIN)
-			free_errors(a);
+			free_error(a, argv, flag_argc_2);
 		if (error_duplicate(*a, (int)n))
-			free_errors(a);
+			free_error(a, argv, flag_argc_2);
 		append_node(a, (int)n);
 		i++;
 	}
+	if (flag_argc_2)
+		free_matrix(argv);
 }
