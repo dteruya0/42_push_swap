@@ -6,7 +6,7 @@
 #    By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/07 09:32:27 by dteruya           #+#    #+#              #
-#    Updated: 2025/03/10 16:38:02 by dteruya          ###   ########.fr        #
+#    Updated: 2025/03/11 14:18:47 by dteruya          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = main.c stack_init.c stack_utils.c \
-		error_free.c list.c \
+		error_free.c list.c swap_func.c\
+		tiny_sort.c \
 
 OBJ = $(SRCS:.c=.o)
 

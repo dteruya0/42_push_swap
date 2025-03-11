@@ -6,7 +6,7 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:33:11 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/10 16:53:20 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/11 13:48:50 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,4 @@ void	stack_init(t_stack_node **a, char **argv, bool flag_argc_2)
 		append_node(a, (int)n);
 		i++;
 	}
-	if (flag_argc_2)
-		free_matrix(argv);
 }
