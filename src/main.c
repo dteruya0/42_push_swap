@@ -6,7 +6,7 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:32:39 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/12 15:19:44 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/12 18:49:51 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,11 @@ int	main(int argc, char **argv)
 			swap_stack(&a, 'a');
 		else if (stack_len(a) == 3)
 			tiny_sort(&a);
+//		else
+//			push_swap(&a, &b);
 	}
 	free_stack(&a);
 	if (argc == 2)
 		free_matrix(argv);
 	return (0);
 }
-
-/*		else
-			push_swap();*/

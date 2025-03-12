@@ -6,7 +6,7 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:27:26 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/12 15:52:57 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/12 19:20:09 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,12 @@ t_stack	*prev_last_node(t_stack *stack)
 {
 	t_stack	*prev_last;
 
-	while (stack)
+	if (stack == NULL)
+		return (NULL);
+	prev_last = stack;
+	while (stack->next)
 	{
-		if (stack->next->next == NULL)
-			prev_last = stack;
+		prev_last = stack;
 		stack = stack->next;
 	}
 	return (prev_last);
