@@ -6,7 +6,7 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 14:17:49 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/12 15:36:19 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/12 15:59:09 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ void	tiny_sort(t_stack **stack)
 	else if (biggest == (*stack)->next)
 		rev_rotate_stack(stack, 'a');
 	if ((*stack)->value > (*stack)->next->value)
-		swap(stack);
+		swap_stack(stack, 'a');
 }

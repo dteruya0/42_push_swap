@@ -6,7 +6,7 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:27:26 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/12 12:47:55 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/12 15:52:57 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,18 @@ void	append_node(t_stack **stack, int nbr)
 		add_back(stack, node);
 }
 
-t_stack	*find_biggest(t_stack *a)
+t_stack	*find_biggest(t_stack *stack)
 {
 	t_stack	*biggest;
 
-	biggest = a;
-	while (a)
+	if (stack == NULL)
+		return (NULL);
+	biggest = stack;
+	while (stack)
 	{
-		if (biggest->value < a->next->value)
-			biggest = a->next;
-		a = a->next;
+		if (biggest->value < stack->value)
+			biggest = stack;
+		stack = stack->next;
 	}
 	return (biggest);
 }
