@@ -6,13 +6,13 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:27:26 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/11 17:36:58 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/12 12:47:55 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
-int	stack_len(t_stack_node *stack)
+int	stack_len(t_stack *stack)
 {
 	int	size;
 
@@ -27,26 +27,40 @@ int	stack_len(t_stack_node *stack)
 	return (size);
 }
 
-t_stack_node	*last_node(t_stack_node *stack)
+t_stack	*prev_last_node(t_stack *stack)
 {
-	t_stack_node	*last;
+	t_stack	*prev_last;
 
-	while(stack)
+	while (stack)
 	{
-		if (stack->next == NULL)
-			last = stack;
+		if (stack->next->next == NULL)
+			prev_last = stack;
 		stack = stack->next;
 	}
-	return (last);
+	return (prev_last);
 }
 
-void	append_node(t_stack_node **stack, int nbr)
+void	append_node(t_stack **stack, int nbr)
 {
-	t_stack_node *node;
+	t_stack *node;
 
 	node = new_node(nbr);
 	if (*stack == NULL)
 		*stack = node;
 	else
 		add_back(stack, node);
+}
+
+t_stack	*find_biggest(t_stack *a)
+{
+	t_stack	*biggest;
+
+	biggest = a;
+	while (a)
+	{
+		if (biggest->value < a->next->value)
+			biggest = a->next;
+		a = a->next;
+	}
+	return (biggest);
 }

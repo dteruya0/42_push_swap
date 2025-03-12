@@ -6,17 +6,17 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:01:36 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/11 13:04:12 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/12 13:49:42 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
-t_stack_node	*new_node(int content)
+t_stack	*new_node(int content)
 {
-	t_stack_node	*new_node;
+	t_stack	*new_node;
 
-	new_node = malloc(sizeof(t_stack_node));
+	new_node = malloc(sizeof(t_stack));
 	if (new_node == NULL)
 		return (NULL);
 	new_node->value = content;
@@ -28,9 +28,9 @@ t_stack_node	*new_node(int content)
 	return (new_node);
 }
 
-static t_stack_node	*last_node(t_stack_node *stack)
+t_stack	*last_node(t_stack *stack)
 {
-	t_stack_node	*node;
+	t_stack	*node;
 
 	if (stack == NULL)
 		return (NULL);
@@ -43,9 +43,9 @@ static t_stack_node	*last_node(t_stack_node *stack)
 	return (node);
 }
 
-void	add_back(t_stack_node **stack, t_stack_node *node)
+void	add_back(t_stack **stack, t_stack *node)
 {
-	t_stack_node	*last;
+	t_stack	*last;
 
 	if (stack == NULL || node == NULL)
 		return ;

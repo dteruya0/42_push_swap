@@ -6,11 +6,11 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:08:51 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/11 13:48:28 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/12 13:52:32 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 void	free_matrix(char **argv)
 {
@@ -43,7 +43,7 @@ int	error_syntax(char *str)
 	return (0);
 }
 
-int	error_duplicate(t_stack_node *a, int nbr)
+int	error_duplicate(t_stack *a, int nbr)
 {
 	if (a == NULL)
 		return (0);
@@ -56,22 +56,23 @@ int	error_duplicate(t_stack_node *a, int nbr)
 	return (0);
 }
 
-void	free_stack(t_stack_node **stack)
+void	free_stack(t_stack **stack)
 {
-	t_stack_node	*node;
+	t_stack	*tmp;
 
 	if (stack == NULL)
 		return ;
 	while (*stack)
 	{
-		node = (*stack)->next;
+		tmp = (*stack)->next;
 		free(*stack);
-		*stack = node;
+		*stack = tmp;
 	}
 	*stack = NULL;
 }
 
-void	free_error(t_stack_node **a, char **argv, bool flag_argc_2)
+
+void	free_error(t_stack **a, char **argv, bool flag_argc_2)
 {
 	free_stack(a);
 	if (flag_argc_2)

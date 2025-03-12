@@ -6,13 +6,13 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:33:11 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/11 13:48:50 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/12 15:31:41 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
-bool	stack_sorted(t_stack_node *stack)
+bool	stack_sorted(t_stack *stack)
 {
 	if (stack == NULL)
 		return (1);
@@ -48,12 +48,14 @@ static long	ft_atol(const char *s)
 	return (result * sign);
 }
 
-void	stack_init(t_stack_node **a, char **argv, bool flag_argc_2)
+void	stack_init(t_stack **a, char **argv, bool flag_argc_2)
 {
 	long	n;
 	int		i;
 
 	i = 0;
+	if (!flag_argc_2)
+		i = 1;
 	while (argv[i])
 	{
 		if (error_syntax(argv[i]))

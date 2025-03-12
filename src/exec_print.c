@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   exec_print.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/11 15:50:02 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/11 17:58:21 by dteruya          ###   ########.fr       */
+/*   Created: 2025/03/12 11:52:00 by dteruya           #+#    #+#             */
+/*   Updated: 2025/03/12 12:45:12 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
-static void	rotate(t_stack_node **stack)
+void	swap_stack(t_stack **stack, char c)
 {
-	t_stack_node	*first;
-	t_stack_node	*last;
-
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-	first = *stack;
-	last = last_node(*stack);
-	*stack = (*stack)->next;
-	last->next = first;
-	first->next = NULL;
+	swap(stack);
+	if (c == 'a')
+		ft_printf("sa\n");
+	if (c == 'b')
+		ft_printf("sb\n");
 }
 
-void	rotate_stack(t_stack_node **stack, char c)
+void	rotate_stack(t_stack **stack, char c)
 {
 	rotate(stack);
-	if (c == "a")
+	if (c == 'a')
 		ft_printf("ra\n");
-	if (c == "b")
+	if (c == 'b')
 		ft_printf("rb\n");
+}
+
+void	rev_rotate_stack(t_stack **stack, char c)
+{
+	rev_rotate(stack);
+	if (c == 'a')
+		ft_printf("rra\n");
+	if (c == 'b')
+		ft_printf("rrb\n");
 }

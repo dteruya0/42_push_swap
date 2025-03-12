@@ -6,16 +6,16 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:32:39 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/11 16:50:08 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/12 15:19:44 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 int	main(int argc, char **argv)
 {
-	t_stack_node	*a;
-	t_stack_node	*b;
+	t_stack	*a;
+	t_stack	*b;
 
 	a = NULL;
 	b = NULL;
@@ -30,11 +30,12 @@ int	main(int argc, char **argv)
 			swap_stack(&a, 'a');
 		else if (stack_len(a) == 3)
 			tiny_sort(&a);
-		else
-			push_swap();
 	}
 	free_stack(&a);
 	if (argc == 2)
 		free_matrix(argv);
 	return (0);
 }
+
+/*		else
+			push_swap();*/

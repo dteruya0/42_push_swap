@@ -6,7 +6,7 @@
 #    By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/07 09:32:27 by dteruya           #+#    #+#              #
-#    Updated: 2025/03/11 14:18:47 by dteruya          ###   ########.fr        #
+#    Updated: 2025/03/12 12:05:10 by dteruya          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME = push_swap
 
 SRC_DIR = src
 LIB_DIR = libft
+INCLUDE_DIR = -I include
 OBJ_DIR = obj
 
 LIBFT = $(LIB_DIR)/libft.a
@@ -21,8 +22,8 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = main.c stack_init.c stack_utils.c \
-		error_free.c list.c swap_func.c\
-		tiny_sort.c \
+		error_free.c list.c sort_func.c\
+		tiny_sort.c exec_print.c\
 
 OBJ = $(SRCS:.c=.o)
 
@@ -33,7 +34,7 @@ $(OBJ_DIR):
 
 $(NAME): $(addprefix $(OBJ_DIR)/, $(OBJ))
 	@$(MAKE) -C $(LIB_DIR) --no-print-directory
-	$(CC) $(CFLAGS) -o $(NAME) $(addprefix $(OBJ_DIR)/, $(OBJ)) $(LIBFT)
+	$(CC) $(CFLAGS) $(INCLUDE_DIR) -o $(NAME) $(addprefix $(OBJ_DIR)/, $(OBJ)) $(LIBFT)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
