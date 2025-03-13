@@ -6,7 +6,7 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 11:52:00 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/12 12:45:12 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/12 20:00:01 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,13 @@ void	rev_rotate_stack(t_stack **stack, char c)
 		ft_printf("rra\n");
 	if (c == 'b')
 		ft_printf("rrb\n");
+}
+
+void	push_stack(t_stack **src, t_stack **dest, char end)
+{
+	push(src, dest);
+	if (end == 'a')
+		ft_printf("pa\n");
+	if (end == 'b')
+		ft_printf("pb\n");
 }

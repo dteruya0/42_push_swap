@@ -6,7 +6,7 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 13:01:36 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/12 13:49:42 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/13 17:26:28 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ t_stack	*new_node(int content)
 	if (new_node == NULL)
 		return (NULL);
 	new_node->value = content;
-	new_node->push_a = 0;
-	new_node->push_b = 0;
-	new_node->above_median = false;
-	new_node->cheapest = false;
+	new_node->cost_a = 0;
+	new_node->cost_b = 0;
+	new_node->move_a = '\0';
+	new_node->move_b = '\0';
 	new_node->next = NULL;
 	return (new_node);
 }

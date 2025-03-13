@@ -6,7 +6,7 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:32:58 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/12 13:41:31 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/13 17:02:12 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 typedef struct s_stack
 {
 	int					value;
-	int					push_a;
-	int					push_b;
-	bool				above_median;
-	bool				cheapest;
+	int					cost_a;
+	int					cost_b;
+	char				move_a;
+	char				move_b;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -53,6 +53,8 @@ void	rotate_stack(t_stack **stack, char c);
 void	rotate(t_stack **stack);
 void	rev_rotate_stack(t_stack **stack, char a);
 void	rev_rotate(t_stack **stack);
+void	push_stack(t_stack **src, t_stack **dest, char end);
+void	push(t_stack **src, t_stack **dest);
 
 void	tiny_sort(t_stack **stack);
 t_stack	*find_biggest(t_stack *a);

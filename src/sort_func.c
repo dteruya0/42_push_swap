@@ -6,7 +6,7 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 10:30:44 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/12 19:11:35 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/12 19:57:52 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,19 @@ void	rev_rotate(t_stack **stack)
 		return ;
 	last = last_node(*stack);
 	prev_last = prev_last_node(*stack);
-	if (prev_last == NULL)
-	{
-		ft_printf("\n\n\nErro: prev_last é NULL!\n\n\n");
-		return;
-	}
 	last->next = *stack;
 	*stack = last;
 	prev_last->next = NULL;
+}
+
+void	push(t_stack **src, t_stack **dest)
+{
+	t_stack	*node;
+
+	if (src == NULL || *src == NULL)
+		return ;
+	node = *src;
+	*src = (*src)->next;
+	node->next = *dest;
+	*dest = node;
 }
