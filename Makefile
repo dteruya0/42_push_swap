@@ -6,7 +6,7 @@
 #    By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/07 09:32:27 by dteruya           #+#    #+#              #
-#    Updated: 2025/03/12 19:51:02 by dteruya          ###   ########.fr        #
+#    Updated: 2025/03/15 18:55:51 by dteruya          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCS = main.c stack_init.c stack_utils.c \
 		error_free.c list.c sort_func.c\
-		sort.c exec_print.c\
+		exec_print.c calculate_cost.c\
+		fit_in.c rot.c sorting.c \
 
 OBJ = $(SRCS:.c=.o)
 

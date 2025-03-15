@@ -6,7 +6,7 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 11:52:00 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/12 20:00:01 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/15 17:04:18 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,20 @@ void	push_stack(t_stack **src, t_stack **dest, char end)
 		ft_printf("pa\n");
 	if (end == 'b')
 		ft_printf("pb\n");
+}
+
+void	rotate_both_stack(t_stack **a, t_stack **b, char move)
+{
+	if (move == 'u')
+	{
+		rotate(a);
+		rotate(b);
+		ft_printf("rr\n");
+	}
+	else
+	{
+		rev_rotate(a);
+		rev_rotate(b);
+		ft_printf("rrr\n");
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:32:58 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/13 17:02:12 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/15 19:01:44 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 
 typedef struct s_stack
 {
-	int					value;
-	int					cost_a;
-	int					cost_b;
-	char				move_a;
-	char				move_b;
+	int				value;
+	int				cost_a;
+	int				cost_b;
+	char			move_a;
+	char			move_b;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -55,8 +55,18 @@ void	rev_rotate_stack(t_stack **stack, char a);
 void	rev_rotate(t_stack **stack);
 void	push_stack(t_stack **src, t_stack **dest, char end);
 void	push(t_stack **src, t_stack **dest);
+void	rotate_both_stack(t_stack **a, t_stack **b, char move);
 
 void	tiny_sort(t_stack **stack);
 t_stack	*find_biggest(t_stack *a);
+t_stack	*find_smallest(t_stack *stack);
+
+//algorith
+void	push_swap(t_stack **a, t_stack **b);
+t_stack	*calc_cost(t_stack *s_src, t_stack *s_dest, char src, char dest);
+t_stack	*fit_in_b(t_stack *a, t_stack *b);
+t_stack	*fit_in_a(t_stack *a, t_stack *b);
+void	rot(t_stack **a, t_stack **b, t_stack *node_a, t_stack *node_b);
+void	mov_cost(t_stack *stack, char c);
 
 #endif

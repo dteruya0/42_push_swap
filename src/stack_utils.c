@@ -6,7 +6,7 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:27:26 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/12 19:20:09 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/15 19:21:11 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,32 @@ void	append_node(t_stack **stack, int nbr)
 
 t_stack	*find_biggest(t_stack *stack)
 {
-	t_stack	*biggest;
+	t_stack	*big;
 
 	if (stack == NULL)
 		return (NULL);
-	biggest = stack;
+	big = stack;
 	while (stack)
 	{
-		if (biggest->value < stack->value)
-			biggest = stack;
+		if (big->value < stack->value)
+			big = stack;
 		stack = stack->next;
 	}
-	return (biggest);
+	return (big);
+}
+
+t_stack	*find_smallest(t_stack *stack)
+{
+	t_stack	*small;
+
+	if (stack == NULL)
+		return (NULL);
+	small = stack;
+	while (stack)
+	{
+		if (small->value > stack->value)
+			small = stack;
+		stack = stack->next;
+	}
+	return (small);
 }

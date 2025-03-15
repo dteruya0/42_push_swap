@@ -6,7 +6,7 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:02:38 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/13 17:53:47 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/15 20:24:15 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ static void	type_move(t_stack *stack, int size, char c)
 	}
 }
 /*
-Esta função pega o custo da movimentação para por no topocada nó.
-Como começa no indice 1 e cost 0, pois o primeiro nó já está encima.
+Esta função pega o custo da movimentação para por no topo cada nó.
+Começa no indice 1 e cost 0, pois o primeiro nó já está encima.
 */
 void	mov_cost(t_stack *stack, char c)
 {
@@ -64,21 +64,73 @@ void	mov_cost(t_stack *stack, char c)
 			stack->cost_b = cost;
 		if (i <= size / 2)
 			cost++;
-		else if (!((i <= (size / 2) + 1) && (size % 2 != 0)))
+		else if (!((i <= (size / 2 + 1)) && (size % 2 != 0)))
 			cost--;
 		stack = stack->next;
 		i++;
 	}
 }
 
+static int	move_total(t_stack *a, t_stack *b)
+{
+	int	total;
+
+	total = 0;
+	if (a->move_a == b->move_b)
+	{
+		if (a->cost_a >= b->cost_b)
+			total = a->cost_a;
+		else
+			total = b->cost_b;
+	}
+	else
+		total = a->cost_a + b->cost_b;
+	return (total);
+}
+
+/*
+Como anteriormente eu não calculei o valor de mandar um nó para outra stack, 
+meu total já inicializa com 1.
+*/
+
+static int	total_cost(t_stack *s_src, t_stack *s_dest, char src)
+{
+	int		total;
+	t_stack	*fit_in;
+
+	total = 1;
+	if (src == 'a')
+	{
+		fit_in = fit_in_b(s_src, s_dest);
+		total = total + move_total(s_src, fit_in);
+	}
+	else
+	{
+		fit_in = fit_in_a(s_src, s_dest);
+		total = total + move_total(fit_in, s_src);
+	}
+	return (total);
+}
+
 t_stack	*calc_cost(t_stack *s_src, t_stack *s_dest, char src, char dest)
 {
 	t_stack	*lowest_cost;
+	int		lowest;
+	int		total;
 
+	lowest = 100000;
 	mov_cost(s_src, src);
 	mov_cost(s_dest, dest);
-	
-	
+	while (s_src)
+	{
+		total = total_cost(s_src, s_dest, src);
+		if (lowest > total)
+		{
+			lowest = total;
+			lowest_cost = s_src;
+		}
+		s_src = s_src->next;
+	}
 	return (lowest_cost);
 }
 
