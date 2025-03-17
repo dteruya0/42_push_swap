@@ -6,7 +6,7 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:27:26 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/15 19:21:11 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/17 13:23:15 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_stack	*prev_last_node(t_stack *stack)
 
 void	append_node(t_stack **stack, int nbr)
 {
-	t_stack *node;
+	t_stack	*node;
 
 	node = new_node(nbr);
 	if (*stack == NULL)

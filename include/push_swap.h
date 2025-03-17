@@ -6,12 +6,12 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:32:58 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/15 19:01:44 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/17 13:22:01 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include <limits.h>
 # include <stdbool.h>

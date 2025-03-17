@@ -6,7 +6,7 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 14:02:38 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/15 20:24:15 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/17 13:02:58 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	mov_cost(t_stack *stack, char c)
 			stack->cost_b = cost;
 		if (i <= size / 2)
 			cost++;
-		else if (!((i <= (size / 2 + 1)) && (size % 2 != 0)))
+		else if (((i > (size / 2 + 1)) || (size % 2 == 0)))
 			cost--;
 		stack = stack->next;
 		i++;

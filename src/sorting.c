@@ -6,7 +6,7 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 14:17:49 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/15 20:30:19 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/17 13:22:47 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	final_sort(t_stack **a)
 void	push_swap(t_stack **a, t_stack **b)
 {
 	t_stack	*node_a;
-	t_stack *node_b;
+	t_stack	*node_b;
 
 	node_a = NULL;
 	node_b = NULL;
@@ -69,6 +69,3 @@ void	push_swap(t_stack **a, t_stack **b)
 	}
 	final_sort(a);
 }
-
-
-//i sent 2 numbers tu stack b, know i need to verify the cost and where my stack will roll, a or down.
