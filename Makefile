@@ -6,7 +6,7 @@
 #    By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/07 09:32:27 by dteruya           #+#    #+#              #
-#    Updated: 2025/03/15 18:55:51 by dteruya          ###   ########.fr        #
+#    Updated: 2025/03/17 16:24:59 by dteruya          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = main.c stack_init.c stack_utils.c \
-		error_free.c list.c sort_func.c\
+		error_free.c node.c sort_func.c\
 		exec_print.c calculate_cost.c\
 		fit_in.c rot.c sorting.c \
 
