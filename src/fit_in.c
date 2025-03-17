@@ -6,7 +6,7 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 15:55:52 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/17 13:50:44 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/17 14:05:25 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static t_stack	*other_place(t_stack *stack, char c)
 {
-	int	nbr;
+	int		nbr;
 	t_stack	*place;
 
 	if (c == 'a')
@@ -49,8 +49,8 @@ t_stack	*fit_in_b(t_stack *a, t_stack *b)
 	nbr = -2147483648;
 	while (stack)
 	{
-		if (a->value > stack->value && nbr <= stack->value)  // Este if verifica se, o valor da stack A é maior que algum dos valores na stack B &&
-		{                                                   // Se o nbr é manor que o valor da stack B e assim precisamos encontrar o maior valor que seja menor do que o valor da stack A.
+		if (a->value > stack->value && nbr <= stack->value)
+		{
 			nbr = stack->value;
 			place = stack;
 		}
@@ -83,13 +83,3 @@ t_stack	*fit_in_a(t_stack *node_b, t_stack *a)
 		place = other_place(a, 'a');
 	return (place);
 }
-
-
-/*
-7
-5
-6
-4
-2      9
-3     15
-*/

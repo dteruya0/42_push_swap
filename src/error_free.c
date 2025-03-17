@@ -6,7 +6,7 @@
 /*   By: dteruya <dteruya@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 14:08:51 by dteruya           #+#    #+#             */
-/*   Updated: 2025/03/12 13:52:32 by dteruya          ###   ########.fr       */
+/*   Updated: 2025/03/17 14:04:20 by dteruya          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ void	free_stack(t_stack **stack)
 	}
 	*stack = NULL;
 }
-
 
 void	free_error(t_stack **a, char **argv, bool flag_argc_2)
 {
